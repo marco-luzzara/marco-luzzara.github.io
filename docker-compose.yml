@@ -1,0 +1,15 @@
+services:
+  jekyll:
+    image: jekyll/jekyll:4
+    command: ["bash", "-c", "sleep inf"]
+    volumes:
+      - ./docs:/srv/jekyll
+
+  jekyll-serve:
+    extends: jekyll
+    ports:
+      - ${JEKYLL_PORT:-4000}:4000
+    volumes:
+      - ./gem-cache/gems:/usr/gem/gems
+      - ./gem-cache/cache:/usr/gem/cache
+      - ./gem-cache/bundle:/usr/local/bundle
