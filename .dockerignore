@@ -1,0 +1,4 @@
+Makefile
+docs/
+vendor/
+.gitignore
