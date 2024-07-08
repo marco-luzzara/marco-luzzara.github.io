@@ -3,13 +3,13 @@ DOCKER_OPTIONS := --rm
 # DOCKER_MOUNT_CACHE := --volume $$PWD/gem-cache:/usr/gem/gems:Z
 SITE_FOLDER := docs
 
-.PHONY: create-site serve build clean
+.PHONY: create-site build serve stop clean
 
 serve: build
 	docker compose up jekyll-serve
 
 build:
-	docker compose run $(DOCKER_OPTIONS) jekyll jekyll build
+	docker compose run $(DOCKER_OPTIONS) jekyll jekyll build $(ARGS)
 
 create-site:
 	mkdir -p $(SITE_FOLDER)
@@ -20,6 +20,9 @@ create-site:
 	echo "Gemfile.lock" >> $(SITE_FOLDER)/.gitignore
 	docker compose run $(DOCKER_OPTIONS) jekyll bundle install
 	
+stop:
+	docker compose down
+
 clean:
 	rm -rf vendor docs
 
