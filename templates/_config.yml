@@ -22,7 +22,7 @@ baseurl: / # the subpath of your site, e.g. /blog
 url: "https://marco-luzzara.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username: marco-luzzara
-remote_theme: hydecorp/hydejack
+remote_theme: {THEME_NAME}
 
 # Build settings
 markdown: kramdown
