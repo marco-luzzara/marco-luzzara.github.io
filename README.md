@@ -23,5 +23,5 @@ make serve
 To change the theme, use `make change-theme` with the same variables used for `create-site` recipe. Here are some examples:
 
 ```bash
-make change-theme THEME_GEM_ID="\"jekyll-theme-hydejack\", \"~> 9.1\", \">= 9.1.6\"" THEME_NAME="hydecorp/hydejack"
+make change-theme THEME_GEM_ID="\"minimal-mistakes-jekyll\"" THEME_NAME="mmistakes/minimal-mistakes"
 ```
