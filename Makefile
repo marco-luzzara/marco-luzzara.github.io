@@ -10,7 +10,7 @@ SITE_FOLDER := docs
 
 .PHONY: create-site build serve stop clean change-theme
 
-serve: build
+serve:
 	docker compose up jekyll-serve
 
 build:

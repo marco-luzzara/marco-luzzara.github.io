@@ -139,6 +139,9 @@ author:
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
     #   # url: "https://instagram.com/"
+    - label: "StackOverflow"
+      icon: "fab fa-fw fa-stack-overflow"
+      url: "https://stackoverflow.com/users/5587393/marco-luzzara"
 
 # Site Footer
 footer:
