@@ -2,6 +2,7 @@ SHELL=/bin/bash
 DOCKER_OPTIONS := --rm
 # DOCKER_MOUNT_CACHE := --volume $$PWD/gem-cache:/usr/gem/gems:Z
 SITE_FOLDER := docs
+JEKYLL_PORT ?= 4000
 
 # variables:
 # - BUILD_ARGS: arguments to the `jekyll build` commands (e.g. `--verbose`). 
@@ -11,7 +12,7 @@ SITE_FOLDER := docs
 .PHONY: create-site build serve stop clean change-theme
 
 serve:
-	docker compose up jekyll-serve
+	JEKYLL_PORT=$(JEKYLL_PORT) docker compose up jekyll-serve
 
 build:
 	docker compose run $(DOCKER_OPTIONS) jekyll jekyll build $(ARGS)
@@ -35,9 +36,6 @@ change-theme:
 	
 stop:
 	docker compose down
-
-clean:
-	rm -rf vendor docs
 
 # to test:
 # docker run --rm -it -v "$PWD/docs:/srv/jekyll" jekyll/jekyll:4 bash
