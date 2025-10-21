@@ -1,7 +1,5 @@
 SHELL=/bin/bash
-DOCKER_OPTIONS := --rm
-# DOCKER_MOUNT_CACHE := --volume $$PWD/gem-cache:/usr/gem/gems:Z
-SITE_FOLDER := docs
+SITE_FOLDER := docs2
 JEKYLL_PORT ?= 4000
 
 # variables:
@@ -9,13 +7,15 @@ JEKYLL_PORT ?= 4000
 # - THEME_GEM_ID: the remote theme installation parameters for the `gem` command (e.g. for `minima`, it is `"minima", "~> 2.0"`) 
 # - THEME_NAME: the remote theme name to use in the _config.yml
 
-.PHONY: create-site build serve stop clean change-theme
+.PHONY: install
+install:
+	cd ${SITE_FOLDER} && bundle install
 
-serve:
-	JEKYLL_PORT=$(JEKYLL_PORT) docker compose up jekyll-serve
 
-build:
-	docker compose run $(DOCKER_OPTIONS) jekyll jekyll build $(ARGS)
+.PHONY: run
+run: install
+	cd ${SITE_FOLDER} && bundle exec jekyll serve
+
 
 create-site:
 	mkdir -p $(SITE_FOLDER)
