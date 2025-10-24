@@ -1,10 +1,10 @@
 ---
-title: "My Linux toolkit"
+title: "My Linux Toolkit"
 categories:
   - Toolkit
 layout: single
 tags:
-  - Toolkit
+  - Linux
 ---
 
 This post is intended as a catalog of Linux tools/softwares I have found useful and worth giving a try.
@@ -98,3 +98,9 @@ The Enterprise edition is available for academic purposes.
 
 It includ RDP, SSH, and SFTP client. Pre-installed on Ubuntu.
 
+
+<script>
+  Array.from(document.links)
+    .filter(link => link.hostname != window.location.hostname)
+    .forEach(link => link.target = '_blank');
+</script>

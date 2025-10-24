@@ -100,3 +100,8 @@ You can further configure your computer by running additional modules, such as:
 - `cc_runcmd` to run a script
 - `cc_write_files` to create (or append to) files
 
+<script>
+  Array.from(document.links)
+    .filter(link => link.hostname != window.location.hostname)
+    .forEach(link => link.target = '_blank');
+</script>

@@ -109,3 +109,9 @@ After executing `make run`, you can visit your website on `http://localhost:4000
 For the site-specific configurations, please check out the [repository][this-repo], the Jekyll documentation, and the chosen theme documentation ([minimal-mistake](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/) in this case).
 
 [this-repo]: https://github.com/{{ site.repository }}
+
+<script>
+  Array.from(document.links)
+    .filter(link => link.hostname != window.location.hostname)
+    .forEach(link => link.target = '_blank');
+</script>
