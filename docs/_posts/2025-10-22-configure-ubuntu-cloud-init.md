@@ -92,6 +92,19 @@ write_files:
     owner: maluz:maluz
     path: /home/maluz/.bash_aliases
     permissions: '0744'
+  - content: |
+      [user]
+      	email = marco.luzzara@hotmail.it
+      	name = Marco Luzzara
+      [alias]
+      	hist = git log --all --decorate --oneline --graph
+      	git = !git
+      	sua = status -uall
+      [init]
+      	defaultBranch = main
+    owner: maluz:maluz
+    path: /home/maluz/.gitconfig
+    permissions: '0664'
 ```
 
 You can update the `packages` section with the packages you want to install, and `sources` with the APT repositories to add. While it is straightforward to install a new package, adding an APT repository requires some efforts:
