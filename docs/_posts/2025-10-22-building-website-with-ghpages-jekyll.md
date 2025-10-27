@@ -42,6 +42,11 @@ RUN <<EOF
     usermod -l jekyll -d /home/jekyll -m -c Jekyll -s /bin/bash ubuntu
 EOF
 
+# Install git for DevContainer integration with git extension
+RUN <<EOF
+    apt install -y git-all
+EOF
+
 USER jekyll
 
 # Install Ruby Gems to ~/gems'

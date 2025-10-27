@@ -29,6 +29,7 @@ Our brand-new Ubuntu needs:
 
 - The APT repositories (if necessary)
 - The packages to install
+- Custom configurations
 
 So, create a YAML file that adheres to the Cloud-init format, like this one (`user-data.yaml`):
 
@@ -73,6 +74,24 @@ packages:
   - postman
   - virtualbox-7.2
   - wireshark
+  - libreoffice-calc
+  - xclip
+
+runcmd:
+  # Docker - add 1000 user to docker group
+  - |
+    DEFAULT_USER=$(id -un 1000)
+    groupadd docker 
+    usermod -aG docker "$DEFAULT_USER"
+
+write_files:
+  # Custom aliases
+  - content: |
+      alias clip='xclip -selection clipboard'
+      alias rm='trash'
+    owner: maluz:maluz
+    path: /home/maluz/.bash_aliases
+    permissions: '0744'
 ```
 
 You can update the `packages` section with the packages you want to install, and `sources` with the APT repositories to add. While it is straightforward to install a new package, adding an APT repository requires some efforts:
@@ -84,6 +103,12 @@ You can update the `packages` section with the packages you want to install, and
     ```
     The string 40-character long is the value of `keyid`.
 
+As for the `runcmd` section, you should reserve a line for each configuration procedure. To execute multiple commands for a single configuration procedure, use YAML multiline string. 
+
+Cloud-init is always executed as root, so you do not need to prepend `sudo` to the commands. For this reason, the `runcmd` scripts have been adapted to modify the default user (1000) environment.
+
+The `write_files` section can be used to write/append content to a file, such as `~/.bash_aliases`, which contains custom aliases. Make sure to set the correct `owner` and `path`, which depends on the default user.
+
 Finally, you can install them with:
 
 ```bash
@@ -91,14 +116,16 @@ Finally, you can install them with:
 sudo cloud-init single --name cc_apt_configure --file user-data.yaml
 # install the specified packages
 sudo cloud-init single --name cc_package_update_upgrade_install --file user-data.yaml
+# run the runcmd scripts
+sudo cloud-init single --name cc_runcmd --file user-data.yaml
+sudo cloud-init single --name scripts_user --file user-data.yaml
+# write files
+sudo cloud-init single --name cc_write_files --file user-data.yaml
 ```
 
-## Next steps
+Then reboot.
 
-You can further configure your computer by running additional modules, such as:
-
-- `cc_runcmd` to run a script
-- `cc_write_files` to create (or append to) files
+To re-run a module, the `cloud-init clean` is mandatory.
 
 <script>
   Array.from(document.links)
