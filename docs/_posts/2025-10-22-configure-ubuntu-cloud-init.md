@@ -75,7 +75,11 @@ packages:
   - postman
   - virtualbox-7.2
   - wireshark
+  # --- BEGIN LibreOffice ---
   - libreoffice-calc
+  - libreoffice-writer
+  - libreoffice-gnome
+  # --- END LibreOffice ---
   - xclip
   - remmina
 
