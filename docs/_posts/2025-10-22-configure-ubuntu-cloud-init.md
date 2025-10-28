@@ -60,12 +60,13 @@ packages:
   - thunderbird
   - snap:
     - [kubectl, --classic]
+    - [helm, --classic]
   - code
   - telegram-desktop
   - vivaldi
   # --- BEGIN Docker ---
-  - docker-ce 
-  - docker-ce-cli 
+  - docker-ce
+  - docker-ce-cli
   - containerd.io
   - docker-buildx-plugin
   - docker-compose-plugin
@@ -76,12 +77,13 @@ packages:
   - wireshark
   - libreoffice-calc
   - xclip
+  - remmina
 
 runcmd:
   # Docker - add 1000 user to docker group
   - |
     DEFAULT_USER=$(id -un 1000)
-    groupadd docker 
+    groupadd docker
     usermod -aG docker "$DEFAULT_USER"
 
 write_files:
@@ -92,6 +94,8 @@ write_files:
     owner: maluz:maluz
     path: /home/maluz/.bash_aliases
     permissions: '0744'
+    defer: true
+  # git config
   - content: |
       [user]
       	email = marco.luzzara@hotmail.it
@@ -105,6 +109,15 @@ write_files:
     owner: maluz:maluz
     path: /home/maluz/.gitconfig
     permissions: '0664'
+    defer: true
+  # kubectl and helm bash completion
+  - content: |
+      source <(kubectl completion bash)
+      source <(helm completion bash)
+    path: /home/maluz/.bashrc
+    append: true
+    owner: maluz:maluz
+    defer: true
 ```
 
 You can update the `packages` section with the packages you want to install, and `sources` with the APT repositories to add. While it is straightforward to install a new package, adding an APT repository requires some efforts:
@@ -120,9 +133,15 @@ As for the `runcmd` section, you should reserve a line for each configuration pr
 
 Cloud-init is always executed as root, so you do not need to prepend `sudo` to the commands. For this reason, the `runcmd` scripts have been adapted to modify the default user (1000) environment.
 
-The `write_files` section can be used to write/append content to a file, such as `~/.bash_aliases`, which contains custom aliases. Make sure to set the correct `owner` and `path`, which depends on the default user.
+The `write_files` section can be used to write/append content to a file, such as `~/.bash_aliases`, which contains custom aliases. Make sure to set the adapt the `owner` and `path` according to the default user name. `defer: true` is important because it allows to
 
-Finally, you can install them with:
+> Defer writing the file until ‘final’ stage, after users were created, and packages were installed.
+
+If in the cloud-init logs (`/var/log/cloud-init.log`) you see a message like `Skipping module named cc_write_files, no/empty 'write_files' key in configuration`, try removing the `defer` option.
+
+---
+
+Finally, you can run cloud-init modules with:
 
 ```bash
 # Install the apt repositories
