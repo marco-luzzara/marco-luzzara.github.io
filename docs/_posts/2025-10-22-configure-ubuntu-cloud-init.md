@@ -122,6 +122,11 @@ write_files:
     append: true
     owner: maluz:maluz
     defer: true
+  # Templates
+  - content: ''
+    path: '/home/maluz/Templates/Empty File'
+    owner: maluz:maluz
+    defer: true
 ```
 
 You can update the `packages` section with the packages you want to install, and `sources` with the APT repositories to add. While it is straightforward to install a new package, adding an APT repository requires some efforts:
