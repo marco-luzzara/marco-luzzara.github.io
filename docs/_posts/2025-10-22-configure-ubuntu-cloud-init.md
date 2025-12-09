@@ -81,6 +81,7 @@ packages:
   - libreoffice-gnome
   # --- END LibreOffice ---
   - xclip
+  - trash-cli
   - remmina
 
 runcmd:

@@ -48,16 +48,24 @@ Another tool that ranks conferences and journals, but using objective metrics, i
 
 ## Writing
 
-Overleaf is the most popular collaborative online application that you can use to write papers. To compile your work offline, `pandoc/latex` Docker image is a good alternative, especially when paired with VSCode and Devcontainers (and possibly extensions). By the way, the following tools are especially helpful to create Latex elements from UI:
+Overleaf is the most popular collaborative online application that you can use to write papers. To compile your work offline, `pandoc/latex` Docker image is a good alternative, especially when paired with VSCode and Devcontainers (and possibly extensions).
+
+The tools I suggest are:
 
 - [Mathpix](https://mathpix.com/image-to-latex) - image to latex, convert images of math, text, and tables to LaTeX
 - [tablegenerator](https://www.tablesgenerator.com) - generate latex table from UI
 - [Beamer](https://www.overleaf.com/learn/latex/Beamer_Presentations%3A_A_Tutorial_for_Beginners_(Part_1)%E2%80%94Getting_Started) - create presentation with latex
 - [Mathcha.io](https://www.mathcha.io/editor) - Export images and math expression, convenient for exporting images to tikz
-- [BibTex Tidy](https://flamingtempura.github.io/bibtex-tidy) - tidy the bibliography
+
+- Bibliography-related:
+    - [BibTex Tidy](https://flamingtempura.github.io/bibtex-tidy) - Tidy the bibliography
+    - [Cite this for me](https://www.citethisforme.com)/[doi2bib](https://www.doi2bib.org) - Get the bibtex from an url (and other sources)
+    - [Google Scholar BibTeX Copier](https://chromewebstore.google.com/detail/google-scholar-bibtex-cop/ihccfpbmoeeiibppdgcjjcoahggpfohl) - It automatically copies the bibtex code when you click on Cite -> BibTex in Google Scholar. Otherwise, you have to copy it manually and close the web page opened by Google scholar. This extension can be paired with [Google Scholar Button](https://chromewebstore.google.com/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn?hl=en), which repeats the last browser research on Google scholar without switching page.
+
 
 <script>
   Array.from(document.links)
     .filter(link => link.hostname != window.location.hostname)
     .forEach(link => link.target = '_blank');
 </script>
+
