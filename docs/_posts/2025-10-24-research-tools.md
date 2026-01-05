@@ -6,6 +6,7 @@ layout: single
 tags:
   - Overleaf
   - Zotero
+  - Latex
 ---
 
 This post describes the research tools I am using during my PhD. 
