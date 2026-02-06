@@ -29,6 +29,14 @@ It does not have to be necessarily installed because there is also the Docker im
 docker run -it fujiapple/trippy example.com --udp
 ```
 
+### [Nmap](https://nmap.org)
+
+Nmap (Network Mapper) is a free, open-source tool for network discovery and security auditing, used to map networks, discover hosts, identify open ports, services, and operating systems, and find security vulnerabilities, essential for sysadmins and security pros. For instance, to verify port 4000 is opened on *host123*:
+
+```bash
+nmap -p 4000 host123
+```
+
 
 ## Disk Usage
 

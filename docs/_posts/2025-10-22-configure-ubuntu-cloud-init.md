@@ -83,6 +83,14 @@ packages:
   - xclip
   - trash-cli
   - remmina
+  # --- BEGIN virtualization ---
+  - virt-viewer
+  - qemu-kvm
+  - libvirt-daemon-system
+  - libvirt-clients
+  - bridge-utils
+  - virt-manager
+  # --- END virtualization ---
 
 runcmd:
   # Docker - add 1000 user to docker group
@@ -90,6 +98,11 @@ runcmd:
     DEFAULT_USER=$(id -un 1000)
     groupadd docker
     usermod -aG docker "$DEFAULT_USER"
+  # Libvirt and KVM - add 1000 user to libvirt and kvm groups
+  - |
+    DEFAULT_USER=$(id -un 1000)
+    adduser "$DEFAULT_USER" libvirt
+    adduser "$DEFAULT_USER" kvm
 
 write_files:
   # Custom aliases

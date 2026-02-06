@@ -71,7 +71,40 @@ The package enhances LaTeX's cross-referencing features, allowing the format of 
 
 
 ### `array`, `tabularx`, `multirow` for tables
-An extended implementation of the array and tabular environments which extends the options for column formats, and provides “programmable” format specifications. It is useful to specify the width of table columns, if they must be fixed. If you don't need to control the width of each cell, but of the entire table and then evenly distribute the space within, use the `tabularx` package. 
+An extended implementation of the array and tabular environments which extends the options for column formats, and provides “programmable” format specifications. It is useful to specify the width of table columns, if they must be fixed. If you don't need to control the width of each cell, but of the entire table and then evenly distribute the space within, use the `tabularx` package.
+
+For example,
+
+```latex
+\usepackage{tabularx}
+\renewcommand\tabularxcolumn[1]{m{#1}} % vertically center the cell text
+
+\begin{table}[!h]
+\centering
+\begin{tabularx}{\textwidth} { 
+    | >{\centering\arraybackslash\hsize=.1\hsize}X 
+    | >{\raggedright\arraybackslash\hsize=.45\hsize}X 
+    | >{\raggedright\arraybackslash\hsize=.45\hsize}X | }
+\hline
+    &
+    \multicolumn{1}{|c|}{Centered 1} &
+    \multicolumn{1}{|c|}{Centered 2} \\ \hline
+    
+    Value 1 &
+    Value 2 &
+    Value 3 \\ \hline
+    
+\end{tabularx}
+\caption{Caption for table}
+\label{tab:sample-table}
+\end{table}
+```
+
+The above table consists of 3 columns:
+
+1. Horizontally centered (`\centering`) column that takes 10% of entire width (`\hsize=.1\hsize`)
+2. Column with text on the left (`\raggedright`), takes 45% of entire width
+3. Column with text on the left (`\raggedright`), takes 45% of entire width
 
 `\multicolumn` can be used to merge rows and columns, creating larger table cells. Usage examples of this package and the other described in this section are presented [here](https://www.overleaf.com/learn/latex/Tables#Tables_with_a_fixed_width).
 
