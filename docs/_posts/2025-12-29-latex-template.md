@@ -58,6 +58,8 @@ Your abstract
 \end{document}
 ```
 
+---
+
 ## Recommended Latex Packages
 
 ### `titling`
@@ -68,7 +70,6 @@ The package provides hyphenable spacing out (letterspacing), underlining, striki
 
 ### `cleveref`
 The package enhances LaTeX's cross-referencing features, allowing the format of references to be determined automatically according to the type of reference. Use `\cref` for lowercase reference text, and `\Cref` to capitalized reference text. 
-
 
 ### `array`, `tabularx`, `multirow` for tables
 An extended implementation of the array and tabular environments which extends the options for column formats, and provides “programmable” format specifications. It is useful to specify the width of table columns, if they must be fixed. If you don't need to control the width of each cell, but of the entire table and then evenly distribute the space within, use the `tabularx` package.
@@ -107,8 +108,6 @@ The above table consists of 3 columns:
 3. Column with text on the left (`\raggedright`), takes 45% of entire width
 
 `\multicolumn` can be used to merge rows and columns, creating larger table cells. Usage examples of this package and the other described in this section are presented [here](https://www.overleaf.com/learn/latex/Tables#Tables_with_a_fixed_width).
-
-...
 
 <script>
   Array.from(document.links)
