@@ -128,10 +128,11 @@ write_files:
     path: /home/maluz/.gitconfig
     permissions: '0664'
     defer: true
-  # kubectl and helm bash completion
+  # kubectl, helm, and docker bash completion
   - content: |
       source <(kubectl completion bash)
       source <(helm completion bash)
+      source <(docker completion bash)
     path: /home/maluz/.bashrc
     append: true
     owner: maluz:maluz

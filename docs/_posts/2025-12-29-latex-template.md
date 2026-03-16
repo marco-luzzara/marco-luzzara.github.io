@@ -65,6 +65,9 @@ Your abstract
 ### `titling`
 The titling package provides control over the typesetting of the `\maketitle` command and `\thanks` commands, and makes the `\title`, `\author` and `\date` information permanently available.
 
+### `url` and `hyperref`
+Links to a web address or email can added to a LaTeX file using the `\url` command to display the actual link or `\href` to use a hidden link and show a word/sentence instead.
+
 ### `soul`
 The package provides hyphenable spacing out (letterspacing), underlining, striking out, etc., using the TeX hyphenation algorithm to find the proper hyphens automatically. `color` package must be installed too in order to use the yellow highlighting (`\hl{}`) 
 

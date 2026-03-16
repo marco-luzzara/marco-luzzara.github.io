@@ -62,6 +62,16 @@ The tools I suggest are:
     - [BibTex Tidy](https://flamingtempura.github.io/bibtex-tidy) - Tidy the bibliography
     - [Cite this for me](https://www.citethisforme.com)/[doi2bib](https://www.doi2bib.org) - Get the bibtex from an url (and other sources)
     - [Google Scholar BibTeX Copier](https://chromewebstore.google.com/detail/google-scholar-bibtex-cop/ihccfpbmoeeiibppdgcjjcoahggpfohl) - It automatically copies the bibtex code when you click on Cite -> BibTex in Google Scholar. Otherwise, you have to copy it manually and close the web page opened by Google scholar. This extension can be paired with [Google Scholar Button](https://chromewebstore.google.com/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn?hl=en), which repeats the last browser research on Google scholar without switching page.
+    
+### AI-Generation tool
+
+- [NotebookLM](https://notebooklm.google.com) - Select the collection you want to include on NotebookLM, *"Export Collection..."* => Check *Export notes*, *Export files*, and *Include annotations*. Make sure the format is *Zotero RDF*, save it in a folder and `cd` into it. Then run:
+    ```bash
+    mkdir files && find . -name "*.pdf" | xargs -I {} mv {} files/
+    ```
+    All files are saved into the `files` folder.
+
+- [YomuAI](https://www.yomu.ai) - subscription based tool, but offers free tools (see the footer of the website)
 
 
 <script>

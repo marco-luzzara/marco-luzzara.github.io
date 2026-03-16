@@ -23,14 +23,26 @@ RUN <<EOF
     apt install -y wget git make texlive-full
 EOF
 
+# additional packages
+RUN <<EOF
+    apt update
+    # used to convert svg to pdf while rendering svg
+    apt install -y inkscape
+EOF
+
 USER 1000
 ```
+
+This image is available on DockerHub as `maluz/latex-vscode`.
 
 Create the `.devcontainer/devcontainer.json` file with the following content:
 
 ```json
 {
     "name": "vscode-multi-layer-assurance",
+    // Replace "build" section with the "image" as commented if you want to use
+    // the already available Docker image
+    // "image": "maluz/latex-vscode",
     "build": {
         "dockerfile": "Dockerfile"
     },
@@ -53,11 +65,11 @@ Create the `.devcontainer/devcontainer.json` file with the following content:
                         "name": "latexmk",
                         "command": "latexmk",
                         "args": [
-                            // "-shell-escape",
                             "-cd",
                             "-synctex=1",
                             "-interaction=nonstopmode",
                             "-file-line-error",
+                            "-shell-escape", # for svg to pdf conversion
                             "-lualatex",
                             "-outdir=%OUTDIR%",
                             "%DIR%/main.tex"
@@ -74,8 +86,6 @@ When opened in a container, it will install the `Latex Workshop` extension and o
 - Use the `lualatex` compiler
 - Copy the output files into the `output` folder
 - Re-compile every time a file is tex file saved
-
-...
 
 <script>
   Array.from(document.links)
