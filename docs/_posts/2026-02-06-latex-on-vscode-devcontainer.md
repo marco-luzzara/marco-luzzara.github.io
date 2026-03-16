@@ -12,6 +12,8 @@ tags:
 
 In this post, we see how to setup VSCode to compile your Latex documents. DevContainer is necessary to avoid installing the Latex compiler directly on your host, but inside a container. 
 
+## Devcontainer Initialization
+
 Prepare a Dockerfile containing the Latex compiler. For simplicity, we are going to install the `texlive-full` package. Copy the below `Dockerfile` into the `.devcontainer` folder. 
 
 ```dockerfile
@@ -69,7 +71,7 @@ Create the `.devcontainer/devcontainer.json` file with the following content:
                             "-synctex=1",
                             "-interaction=nonstopmode",
                             "-file-line-error",
-                            "-shell-escape", # for svg to pdf conversion
+                            "-shell-escape", // for svg to pdf conversion
                             "-lualatex",
                             "-outdir=%OUTDIR%",
                             "%DIR%/main.tex"
@@ -86,6 +88,14 @@ When opened in a container, it will install the `Latex Workshop` extension and o
 - Use the `lualatex` compiler
 - Copy the output files into the `output` folder
 - Re-compile every time a file is tex file saved
+
+---
+
+## User Settings
+
+In the devcontainer configuration, I have specified the `settings` option, which includes the directives useful to compile the Latex document and generate the PDF. This section is overridden by the `.vscode/settings.json` file, which is supposed to be project specific (as it is usually versioned), but it also contains preference-based options, such as auto-build the pdf on document save.
+
+For this reason, a common practice is to keep only the `settings.json` file, removing the same settings in the devcontainer section, but rename that file to something like `settings.json.template`. This file can then be versioned, but each user should create its own `settings.json` starting from the template and customize the necessary options. The user-specific `settings.json` should not be versioned, so add it to `.gitignore`.
 
 <script>
   Array.from(document.links)
