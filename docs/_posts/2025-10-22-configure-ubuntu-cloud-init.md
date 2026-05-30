@@ -83,6 +83,7 @@ packages:
   - xclip
   - trash-cli
   - remmina
+  - net-tools
   # --- BEGIN virtualization ---
   - virt-viewer
   - qemu-kvm

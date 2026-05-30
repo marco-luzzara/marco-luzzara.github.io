@@ -15,6 +15,8 @@ This post describes the research tools I am using during my PhD.
 
 You typically start with some ready-to-read papers, maybe recommended by your supervisor; first thing to do is to save and organize them. The most popular tool to do that is [**Zotero**](https://www.zotero.org), for which exists a browser extension too. It will be your library for the entire research period, and for this reason, make sure to organize your paper in multi-level folders if necessary.
 
+You can copy the BibTex for each article you have saved using the *Quick Copy* function. This can be configured on *Edit" => *Settings* => *Export*, and in *Item format* select *BibTex*.
+
 ## Discovering phase
 
 One of the most time-consuming research activities is discovering new papers from the research line you are studying. To build the state of the art, you might have to explore a lot of papers and the risk of reading some unnecessary and unrelated stuff is high. The traditional search engine for academic works is Google Scholar, but there are ways to speed this up. In particular, if you need to find related works, I suggest you these tools:
@@ -35,6 +37,8 @@ For semantic-based researches, many AI-powered tools are available:
 
 - [Semantic Scholar](https://www.semanticscholar.org/search) (a search engine, just like Google Scholar)
 - [Elicit](https://elicit.com) and [Consensus](https://consensus.app)
+
+In case you are looking for a dataset, there is [Dataset Search](https://datasetsearch.research.google.com).
 
 
 ### Ranking papers and conferences
@@ -67,7 +71,7 @@ The tools I suggest are:
 
 - [NotebookLM](https://notebooklm.google.com) - Select the collection you want to include on NotebookLM, *"Export Collection..."* => Check *Export notes*, *Export files*, and *Include annotations*. Make sure the format is *Zotero RDF*, save it in a folder and `cd` into it. Then run:
     ```bash
-    mkdir files && find . -name "*.pdf" | xargs -I {} mv {} files/
+    mkdir -p files && find . -name "*.pdf" | xargs -I {} mv {} files/
     ```
     All files are saved into the `files` folder.
 

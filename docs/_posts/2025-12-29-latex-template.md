@@ -24,6 +24,7 @@ This post presents the Latex templates I use along with the packages that I reco
   left=30mm,
   right=30mm
 ]{geometry}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{titling}
@@ -67,6 +68,9 @@ The titling package provides control over the typesetting of the `\maketitle` co
 
 ### `url` and `hyperref`
 Links to a web address or email can added to a LaTeX file using the `\url` command to display the actual link or `\href` to use a hidden link and show a word/sentence instead.
+
+### `graphicx`
+The package builds upon the `graphics` package, providing a key-value interface for optional arguments to the `\includegraphics` command. This interface provides facilities that go far beyond what the graphics package offers on its own.
 
 ### `soul`
 The package provides hyphenable spacing out (letterspacing), underlining, striking out, etc., using the TeX hyphenation algorithm to find the proper hyphens automatically. `color` package must be installed too in order to use the yellow highlighting (`\hl{}`) 

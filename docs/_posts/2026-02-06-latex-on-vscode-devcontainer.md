@@ -37,11 +37,11 @@ USER 1000
 
 This image is available on DockerHub as `maluz/latex-vscode`.
 
-Create the `.devcontainer/devcontainer.json` file with the following content:
+Create the `.devcontainer/devcontainer.json` file with the following content (**replacing the devcontainer name**):
 
 ```json
 {
-    "name": "vscode-multi-layer-assurance",
+    "name": "vscode-name-of-your-project",
     // Replace "build" section with the "image" as commented if you want to use
     // the already available Docker image
     // "image": "maluz/latex-vscode",
@@ -89,6 +89,26 @@ When opened in a container, it will install the `Latex Workshop` extension and o
 - Copy the output files into the `output` folder
 - Re-compile every time a file is tex file saved
 
+Additionally, you could create a VSCode task to clean the output folder. Create the file `.vscode/tasks.json` and copy the following content:
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clean Latex output",
+            "type": "shell",
+            "command": "rm -rf output",
+            "problemMatcher": []
+        }
+    ]
+}
+```
+
+Set a shortcut for running a task (`workbench.action.tasks.runTask`).
+
 ---
 
 ## User Settings
@@ -96,6 +116,14 @@ When opened in a container, it will install the `Latex Workshop` extension and o
 In the devcontainer configuration, I have specified the `settings` option, which includes the directives useful to compile the Latex document and generate the PDF. This section is overridden by the `.vscode/settings.json` file, which is supposed to be project specific (as it is usually versioned), but it also contains preference-based options, such as auto-build the pdf on document save.
 
 For this reason, a common practice is to keep only the `settings.json` file, removing the same settings in the devcontainer section, but rename that file to something like `settings.json.template`. This file can then be versioned, but each user should create its own `settings.json` starting from the template and customize the necessary options. The user-specific `settings.json` should not be versioned, so add it to `.gitignore`.
+
+---
+
+Aside from formatting shortcuts, two other shortcuts are noteworthy: 
+- <kbd>Ctrl</kbd> + <kbd>click</kbd> on PDF viewer: move to pointed line in the editor
+- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd> on Editor: move to the pointed line in the PDF viewer
+
+See [this page](https://paulwintz.com/latex-in-vscode/) for other customizations.
 
 <script>
   Array.from(document.links)
