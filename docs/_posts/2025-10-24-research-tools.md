@@ -71,9 +71,9 @@ The tools I suggest are:
 
 - [NotebookLM](https://notebooklm.google.com) - Select the collection you want to include on NotebookLM, *"Export Collection..."* => Check *Export notes*, *Export files*, and *Include annotations*. Make sure the format is *Zotero RDF*, save it in a folder and `cd` into it. Then run:
     ```bash
-    mkdir -p files && find . -name "*.pdf" | xargs -I {} mv {} files/
+    mkdir -p exported-pdfs && find . -name "*.pdf" -exec mv '{}' exported-pdfs/ \;
     ```
-    All files are saved into the `files` folder.
+    All files are saved into the `exported-pdfs` folder.
 
 - [YomuAI](https://www.yomu.ai) - subscription based tool, but offers free tools (see the footer of the website)
 
