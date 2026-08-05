@@ -98,6 +98,19 @@ The Enterprise edition is available for academic purposes.
 > Postman is the platform where teams build those APIs together. With built-in support for the Model Context Protocol (MCP), Postman helps you design, test, and manage APIs that power both human workflows and intelligent agents.
 
 
+## Browser
+
+### [Vivaldi](https://vivaldi.com)
+
+Best features:
+- Workspaces
+- Command chains and keyboard shortcut
+
+### Chromium Extension - [Select to AI](https://chromewebstore.google.com/detail/select-to-ai/ifofkleafhmamganjnoaaipdmffifcgc)
+
+> Send selected text to ChatGPT, Gemini, or Perplexity via New Tab, Popup Window, or Side Panel.
+
+
 ## Clients
 
 ### [Remmina](https://remmina.org)
@@ -106,6 +119,11 @@ The Enterprise edition is available for academic purposes.
 
 It includ RDP, SSH, and SFTP client. Pre-installed on Ubuntu.
 
+## Backup
+
+### [Deja Dup Backups](https://apps.gnome.org/DejaDup/)
+
+> Déjà Dup is a simple backup tool. It hides the complexity of backing up the Right Way (encrypted, off-site, and regular) and uses Restic behind the scenes. Support for local, remote, or cloud backup locations such as Google Drive.
 
 <script>
   Array.from(document.links)

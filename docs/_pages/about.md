@@ -6,7 +6,7 @@ layout: single
 
 I am Marco Luzzara, a developer with a passion for automation and optimization. I love understanding how things work, not just making them work.
 
-After primary school, I attended *Liceo Scientifico Belfiore* in Mantova, where I first discovered programming. My journey began with Pascal, but I quickly transitioned to C/C++. During those five years, I also developed a strong interest in cybersecurity, which I continued to cultivate for a few years afterwards. My final project in high school focused on phishing and the most effective techniques for detecting it.
+After primary school, I attended *Liceo Scientifico Belfiore* in Mantova, where I first discovered programming. My journey began with Pascal, but I quickly moved to C/C++. During those five years, I also developed a strong interest in cybersecurity, which I continued to cultivate for a few years afterwards. My final project in high school focused on phishing and the most effective techniques for detecting it.
 
 In 2016, I moved to Trento to pursue a Bachelor's degree in Computer Science. It was my first experience living away from home, but since Trento is a small city like Mantova, I adapted quickly. During my studies, I began working with Aliaslab S.p.A., an IT company based in Mantova, under an intermittent contract. It was an incredible experience, mostly thanks to the team, who taught a 19 years old how to work efficiently in a collaborative environment. My Bachelor’s thesis focused on CI/CD, with a practical case study based on my projects at Aliaslab S.p.A.
 
