@@ -123,6 +123,7 @@ write_files:
       	hist = git log --all --decorate --oneline --graph
       	git = !git
       	sua = status -uall
+      	pushforce = push --force-with-lease
       [init]
       	defaultBranch = main
     owner: maluz:maluz

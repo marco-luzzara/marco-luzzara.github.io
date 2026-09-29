@@ -110,6 +110,9 @@ Best features:
 
 > Send selected text to ChatGPT, Gemini, or Perplexity via New Tab, Popup Window, or Side Panel.
 
+### Chromium Extension - [find+ | Regex Find-in-Page Tool](https://chromewebstore.google.com/detail/find+-regex-find-in-page/fddffkdncgkkdjobemgbpojjeffmmofb)
+
+> A find-in-page extension with support for regular expressions.
 
 ## Clients
 
